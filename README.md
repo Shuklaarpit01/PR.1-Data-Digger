@@ -1,60 +1,119 @@
-<p align="center"> <img src="https://placehold.co/1000x300/0f172a/38bdf8?text=DATA+DIGGER+2.0&font=montserrat" width="100%" alt="Data Digger Banner"> </p>
+ 
+<div align="center">
 
-<p align="center"> <img src="https://img.shields.io/badge/SQL-MySQL-blue?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"> <img src="https://img.shields.io/badge/Project-Data%20Analytics-green?style=for-the-badge" alt="Data Analytics"> <img src="https://img.shields.io/badge/Author-Arpit%20Shukla-orange?style=for-the-badge" alt="Author"> </p>
+# 🚀 PR.1 DATA DIGGER 🚀
 
-🚀 About the Project
-Data Digger 2.0 is a MySQL-based database management project created by Arpit Shukla. It demonstrates essential SQL operations and data analysis using four relational tables: Customers, Orders, Products, and OrderDetails.
+### 🗄️ SQL Database Management Project
 
-🎬 Coding Animation
-<p align="center"> <img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" width="400" alt="Coding Animation"> </p>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=25&pause=1000&color=00C9FF&center=true&vCenter=true&width=600&lines=Welcome+to+Data+Digger!;Explore+SQL+Queries;Manage+Your+Database;Learn+MySQL+Step+by+Step" alt="Animated typing banner" />
 
-🛠️ Technologies Used
-MySQL
-SQL
-Relational Database Management
-Data Analysis
-🗂️ Database Structure
-Table Name	Description
-Customers	Stores customer names, emails, and addresses
-Orders	Stores order IDs, dates, customer IDs, and amounts
-Products	Stores product names, prices, and stock quantities
-OrderDetails	Stores order items, quantities, and subtotals
-🔗 Table Relationships
-Customers.CustomerID → Orders.CustomerID
-Orders.OrderID → OrderDetails.OrderID
-Products.ProductID → OrderDetails.ProductID
-✨ Key Features
-Create and manage databases and tables
-Insert, update, and delete records
-Search customers by name
-Filter records using WHERE and BETWEEN
-Sort products by price using ORDER BY
-Calculate revenue using SUM()
-Find maximum, minimum, and average order amounts
-Analyze product quantities using GROUP BY
-Retrieve related records using JOIN
-Find the most expensive and cheapest products using subqueries
-Retrieve recent orders using date functions
-Find the top three products by quantity sold
-💻 SQL Query Examples
-1. Calculate Total Revenue
-SELECT SUM(SubTotal) AS TotalRevenue
-FROM OrderDetails;
-2. Find the Most Expensive Product
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql&logoColor=white)
+![SQL](https://img.shields.io/badge/Language-SQL-orange?style=for-the-badge&logo=databricks&logoColor=white)
+![Project](https://img.shields.io/badge/Project-Data%20Digger-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+
+**✨ Discover Data • Write Queries • Analyze Results ✨**
+
+</div>
+
+---
+
+## 📌 About the Project
+
+**Data Digger** is a SQL database management project created to practice basic and intermediate SQL commands using MySQL.
+
+This project demonstrates how to create databases and tables, insert records, update and delete data, filter information, perform calculations, and combine data from multiple tables using joins.
+
+## 🎯 Project Objectives
+
+- Learn database and table creation.
+- Insert, update, and delete records.
+- Retrieve data using `SELECT` queries.
+- Filter and sort records.
+- Perform aggregate calculations.
+- Understand primary keys and foreign keys.
+- Use joins and subqueries to analyze data.
+
+## 🛠️ Technologies Used
+
+- **Database:** MySQL
+- **Language:** SQL
+- **Editor:** MySQL Workbench / Visual Studio Code with a MySQL extension
+
+## 🗂️ Database Structure
+
+The project contains four tables:
+
+| Table | Description |
+|---|---|
+| `Customers` | Stores customer names, emails, and addresses |
+| `Orders` | Stores order dates, customer IDs, and order amounts |
+| `Products` | Stores product names, prices, and stock |
+| `OrderDetails` | Stores ordered products, quantities, and subtotals |
+
+## ⚡ SQL Concepts Covered
+
+### 1. Database Operations
+- `CREATE DATABASE`
+- `DROP DATABASE`
+- `USE`
+
+### 2. Table and Data Operations
+- `CREATE TABLE`
+- `INSERT INTO`
+- `UPDATE`
+- `DELETE`
+
+### 3. Data Retrieval
+- `SELECT`
+- `WHERE`
+- `ORDER BY`
+- `BETWEEN`
+- `LIMIT`
+
+### 4. Aggregate Functions
+- `MAX()`
+- `MIN()`
+- `AVG()`
+- `SUM()`
+- `COUNT()`
+
+### 5. Advanced SQL Queries
+- Primary and foreign keys
+- `INNER JOIN`
+- Subqueries
+- `GROUP BY`
+- Date filtering with `CURDATE()` and `INTERVAL`
+
+## 💻 Example SQL Queries
+
+**Find all customers:**
+
+```sql
+SELECT * FROM Customers;
+```
+
+**Find the most expensive product:**
+
+```sql
 SELECT *
 FROM Products
 WHERE Price = (
     SELECT MAX(Price)
     FROM Products
 );
-3. Find the Cheapest Product
-SELECT *
-FROM Products
-WHERE Price = (
-    SELECT MIN(Price)
-    FROM Products
-);
-4. Retrieve Customer Orders
+```
+
+**Calculate total revenue from order details:**
+
+```sql
+SELECT SUM(SubTotal) AS TotalRevenue
+FROM OrderDetails;
+```
+
+**Join customers with their orders:**
+
+```sql
 SELECT
     Customers.Name,
     Orders.OrderID,
@@ -62,57 +121,44 @@ SELECT
     Orders.TotalAmount
 FROM Customers
 JOIN Orders
-    ON Customers.CustomerID = Orders.CustomerID;
-5. Find the Top 3 Products by Quantity
-SELECT
-    ProductID,
-    SUM(Quantity) AS TotalQuantity
-FROM OrderDetails
-GROUP BY ProductID
-ORDER BY TotalQuantity DESC
-LIMIT 3;
-6. Calculate Order Statistics
-SELECT
-    MAX(TotalAmount) AS HighestAmount,
-    MIN(TotalAmount) AS LowestAmount,
-    AVG(TotalAmount) AS AverageAmount
-FROM Orders;
-7. Find Orders from the Last 30 Days
-SELECT *
-FROM Orders
-WHERE OrderDate >= CURDATE() - INTERVAL 30 DAY;
-▶️ How to Run the Project
-Install MySQL Server and MySQL Workbench.
-Download or clone the project repository.
-Open the SQL script in MySQL Workbench.
-Execute the SQL statements in the correct order.
-Run the SELECT queries to view the results.
-⚠️ Important: The script begins with DROP DATABASE DataDigger2;. This permanently deletes the existing database with that name. Back up important data before running the script.
+ON Customers.CustomerID = Orders.CustomerID;
+```
 
-🖼️ Images and Resources
-🐬 MySQL Official Website
-📚 MySQL Documentation
-🎞️ Coding Animation GIFs
-🖼️ Database Banner Images
-💻 Create a GitHub Repository
-🎯 Learning Outcomes
-Through this project, I practiced:
+## 📊 Expected Learning Outcomes
 
-SQL fundamentals and CRUD operations
-Database design and foreign-key relationships
-Aggregate functions and grouping
-Joins and subqueries
-Filtering and sorting records
-Basic sales and inventory analysis
-👨‍💻 Author
-Arpit Shukla
+After completing this project, you will understand how to:
 
-SQL | MySQL | Database Management | Data Analytics
+- Organize data in relational tables.
+- Maintain relationships between tables.
+- Retrieve specific records with SQL queries.
+- Calculate totals, averages, minimums, and maximums.
+- Analyze customer orders and product information.
 
-<p align="center"> ⭐ If you find this project useful, don't forget to give it a star! </p>
+## ▶️ How to Run the Project
 
-GitHub par upload karne ke liye: 
-Create a new repository  par jao, repository ka naam DataDigger2 rakho aur README.md mein upar wala content paste kar do.
+1. Install MySQL Server.
+2. Open MySQL Workbench or connect to MySQL from VS Code.
+3. Open a new SQL query editor.
+4. Copy the SQL script into the editor.
+5. Execute the script in order.
+6. Run the `SELECT` queries to view the results.
 
+**⚠️ Important:** The script starts with `DROP DATABASE DataDigger2;`, which deletes the existing database with that name and its contents. Remove or comment out that line if you want to preserve existing data.
 
-# PR.1-Data-Digger
+## 👨‍💻 Author
+
+**Shukla Arpit**
+
+SQL Practice Project — PR.1 Data Digger
+
+---
+
+<div align="center">
+
+### 🌟 Thanks for Visiting My Project! 🌟
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=F7971E&center=true&vCenter=true&width=500&lines=Keep+Learning!;Keep+Practicing!;Keep+Growing!;Happy+Coding+%F0%9F%9A%80" alt="Animated closing message" />
+
+**💙 Keep Exploring the World of SQL! 💙**
+
+</div>
